@@ -1,0 +1,26 @@
+.card {
+  float: left;
+  padding: .50rem;
+  margin-bottom: 2rem;
+  border: 0;
+}
+
+.card-img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.card-text {
+  font-size: 85%;
+  max-width: 100%;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
