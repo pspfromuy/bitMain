@@ -1,0 +1,23 @@
+{% extends "blog/main.html" %}
+{% block content %}
+{% load static %}
+
+<form action="/search/" method="get">
+    <label for="video_name">Video name: </label>
+    <input id="video_name" type="text" name="video_name">
+    <input type="submit" value="OK">
+</form>
+
+{% if videos %}
+    <ul class="list-group">
+        {% for video in videos %} 
+        <li class="list-group-item">
+            <p>{{video.snippet.title}}</p>
+            <img src="{{video.snippet.thumbnails.medium.url}}">
+            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" class="button">Go To Video</a>
+        </li>
+        
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

@@ -24,9 +24,10 @@
 	      <div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="navbar-nav mr-auto">
 	          <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-	          <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+						<a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+						<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>
 	          <a class="nav-item nav-link" href="#">Our Team</a>
-	        </div>
+					</div>
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
 	          <a class="nav-item nav-link" href="{% url 'users-login' %}">Login</a>
@@ -38,7 +39,7 @@
 	</header>
 
 	<main role="main" class="container">
-		
+
 		      {% block content %}
 		      {% endblock %}
 		
