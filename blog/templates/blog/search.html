@@ -2,12 +2,6 @@
 {% block content %}
 {% load static %}
 
-<form action="/search/" method="get">
-    <label for="video_name">Video name: </label>
-    <input id="video_name" type="text" name="video_name">
-    <input type="submit" value="OK">
-</form>
-
 {% if videos %}
     <ul class="list-group">
         {% for video in videos %} 
