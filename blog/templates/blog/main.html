@@ -21,13 +21,21 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
 	      </button>
-	      <div class="collapse navbar-collapse" id="navbarToggle">
+				<div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="navbar-nav mr-auto">
 	          <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-						<a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								About
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="{% url 'blog-our-team' %}">Our Team</a>
+								<a class="dropdown-item" href="{% url 'blog-faqs' %}">FAQS</a>
+							</div>
+						</li>
 						<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>
-	          <a class="nav-item nav-link" href="#">Our Team</a>
-					</div>
+						</div>
+						
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
 	          <a class="nav-item nav-link" href="{% url 'users-login' %}">Login</a>
