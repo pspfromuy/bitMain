@@ -35,8 +35,11 @@ def youtube_search(q, max_results):
 def home(request):
 	return render(request, 'blog/home.html')
 
-def about(request):
-	return render(request, 'blog/about.html')
+def ourteam(request):
+	return render(request, 'blog/ourteam.html')
+
+def faqs(request):
+	return render(request, 'blog/faqs.html')
 
 def search(request):
 	requestVideos = request.GET.get('video_name', '')

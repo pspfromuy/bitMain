@@ -18,11 +18,22 @@
 	  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
 	    <div class="container-fluid">
 	      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Boombang</a>
-	      	        
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	      </button>
+				<div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="col-4 navbar-nav mr-auto">
-	          	<a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-				<a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
-				<!--<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>-->
+	          <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								About
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<a class="dropdown-item" href="{% url 'blog-our-team' %}">Our Team</a>
+								<a class="dropdown-item" href="{% url 'blog-faqs' %}">FAQS</a>
+							</div>
+						</li>
+						<!--<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>-->
 			</div>
 
 			<div class="col">
@@ -43,7 +54,7 @@
     				</ul>
 				{% endif %}
 			</div>
-	        
+
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
 	        	{% if user.is_authenticated %}
