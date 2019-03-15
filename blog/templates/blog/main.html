@@ -16,29 +16,59 @@
 <body>
 	<header class="site-header">
 	  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-	    <div class="container">
+	    <div class="container-fluid">
 	      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Boombang</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	      </button>
-	      <div class="collapse navbar-collapse" id="navbarToggle">
-	        <div class="navbar-nav mr-auto">
-	          <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-						<a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
-						<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>
-	          <a class="nav-item nav-link" href="#">Our Team</a>
-					</div>
+	      	        
+	        <div class="col-4 navbar-nav mr-auto">
+	          	<a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+				<a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+				<!--<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>-->
+			</div>
+
+			<div class="col">
+				<form class="form-inline my-2 my-lg-0" action="/search/" method="POST">
+     				<input class="form-control mr-sm-2" id="video_name" type="text" name="video_name" placeholder="Search" aria-label="Search">
+      				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="OK">Search</button>
+    			</form>
+    			{% if videos %}
+    				<ul class="list-group">
+        				{% for video in videos %} 
+        					<li class="list-group-item">
+            					<p>{{video.snippet.title}}</p>
+            					<iframe width="373" height="210" src="https://www.youtube.com/embed/{{video.id.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            					<!-- <img src="{{video.snippet.thumbnails.medium.url}}"> -->
+            					<!-- <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" class="button">Go To Video</a> -->
+        					</li>        
+        				{% endfor %}
+    				</ul>
+				{% endif %}
+			</div>
+	        
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
-	          <a class="nav-item nav-link" href="{% url 'users-login' %}">Login</a>
-	          <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
+	        	{% if user.is_authenticated %}
+	        	<a class="nav-item nav-link" href="{% url 'users-profile' %}">Profile</a>
+	        	<a class="nav-item nav-link" href="{% url 'users-logout' %}">Logout</a>
+	        	{% else %}	       
+	        	<a class="nav-item nav-link" href="{% url 'users-login' %}">Login</a>
+	        	<a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
+	        	{% endif %}
 	        </div>
-	      </div>
+
+	      
 	    </div>
 	  </nav>
 	</header>
 
+
 	<main role="main" class="container">
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert alert-{{ message.tags }}">
+				{{ message }}
+				</div>
+			{% endfor %}	
+		{% endif %}
 
 		      {% block content %}
 		      {% endblock %}
@@ -52,4 +82,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
+
 </html>
