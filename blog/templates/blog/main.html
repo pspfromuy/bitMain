@@ -24,7 +24,6 @@
 
         		<div class="navbar-nav" id="nav_left">
           			<a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-					
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -42,7 +41,6 @@
 		          		</form>
 		        	</div>
 		      	</div>
-		   
 
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav ml-auto">
@@ -55,7 +53,6 @@
 	        	{% endif %}
 	        </div>
 	      
-	    	
 		</nav>
 	</header>
 
@@ -64,7 +61,7 @@
 		{% if messages %}
 			{% for message in messages %}
 				<div class="alert alert-{{ message.tags }}">
-				{{ message }}
+					{{ message }}
 				</div>
 			{% endfor %}	
 		{% endif %}
