@@ -1,19 +1,20 @@
 {% extends "blog/main.html" %}
 {% block content %}
 {% load static %}
-
-{% if videos %}
-    <ul class="list-group">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
+   
+    <div class="row">
         {% for video in videos %} 
-        <li class="list-group-item">
-            <p>{{video.snippet.title}}</p>
-            <iframe width="373" height="210" src="https://www.youtube.com/embed/{{video.id.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <!-- <img src="{{video.snippet.thumbnails.medium.url}}"> -->
-            <!-- <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" class="button">Go To Video</a> -->
-        </li>
-        
-        
+        <div class="col-md-4">
+            <div class="card shadow-sm" style="height: 260px;">
+                <p class="card-text" style="height: 20px; text-align: center;">{{video.snippet.title}}</p>
+                <div class="card-body">
+                    <iframe src="https://www.youtube.com/embed/{{video.id.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
-{% endif %}
+    </div>
+
 {% endblock %}

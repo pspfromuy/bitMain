@@ -2,6 +2,7 @@ from django.shortcuts import render
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
+from .models import Service
 
 DEVELOPER_KEY = "AIzaSyD_J7a1LfWjW-JTMZB7lSfnnU1fYezaG5A"
 YOUTUBE_API_SERVICE_NAME = "youtube"
@@ -35,6 +36,13 @@ def youtube_search(q, max_results):
 def home(request):
 	return render(request, 'blog/home.html')
 
+def home2(request):
+	services = Service.objects.all()
+	context = {
+		'services': services
+	}
+	return render(request, 'blog/home2.html', context=context)
+
 def ourteam(request):
 	return render(request, 'blog/ourteam.html')
 
@@ -46,6 +54,6 @@ def search(request):
 	if requestVideos == '' :
 		listOfVideos = []
 	else:
-		listOfVideos = youtube_search(requestVideos, 10)
+		listOfVideos = youtube_search(requestVideos, 9)
 	return render(request, 'blog/search.html', {'videos': listOfVideos})
 

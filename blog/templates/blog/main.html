@@ -10,41 +10,42 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
 <body>
 	<header class="site-header">
-	  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-	    <div class="container-fluid">
-	      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Boombang</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	      </button>
-				<div class="collapse navbar-collapse" id="navbarToggle">
-	        <div class="col-4 navbar-nav mr-auto">
-	          <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								About
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" href="{% url 'blog-our-team' %}">Our Team</a>
-								<a class="dropdown-item" href="{% url 'blog-faqs' %}">FAQS</a>
-							</div>
-						</li>
-						<!--<a class="nav-item nav-link" href="{% url 'blog-search' %}">Search</a>-->
-			</div>
+	  	<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+	    	
+	    		<a class="navbar-brand" href="{% url 'blog-home' %}">Boombang</a>
 
-			<div class="col">
-				<form class="form-inline my-2 my-lg-0" action="/search/" method="GET">
-     				<input class="form-control mr-sm-2" id="video_name" type="text" name="video_name" placeholder="Search" aria-label="Search">
-      				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="OK">Search</button>
-    			</form>
-			</div>
+        		<div class="navbar-nav" id="nav_left">
+          			<a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+					
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="{% url 'blog-our-team' %}">Our Team</a>
+							<a class="dropdown-item" href="{% url 'blog-faqs' %}">FAQS</a>
+						</div>
+					</li>
+				</div>
+
+		      	<div class="navbar-nav mx-auto">
+		        	<div class="searchbar">
+		        		<form action="/search/" method="GET" id="video_search">
+			          		<input class="search_input" type="text" name="video_name" placeholder="Search...">
+			          		<a href="javascript:$('#video_search').submit();" class="search_icon"><i class="fas fa-search"></i></a>
+		          		</form>
+		        	</div>
+		      	</div>
+		   
 
 	        <!-- Navbar Right Side -->
-	        <div class="navbar-nav">
+	        <div class="navbar-nav ml-auto">
 	        	{% if user.is_authenticated %}
 	        	<a class="nav-item nav-link" href="{% url 'users-profile' %}">Profile</a>
 	        	<a class="nav-item nav-link" href="{% url 'users-logout' %}">Logout</a>
@@ -53,10 +54,9 @@
 	        	<a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
 	        	{% endif %}
 	        </div>
-
 	      
-	    </div>
-	  </nav>
+	    	
+		</nav>
 	</header>
 
 
@@ -69,8 +69,16 @@
 			{% endfor %}	
 		{% endif %}
 
-		      {% block content %}
-		      {% endblock %}
+			    {% block content %}
+			    {% endblock %}
+
+		      	{% block footer%}
+					<footer class="text-muted">
+					    <p class="float-right">
+					      	<a href="#">Back to top</a>
+					    </p>
+					</footer>
+				{% endblock %}
 		
 	</main>
 
@@ -79,6 +87,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 
 </body>
 

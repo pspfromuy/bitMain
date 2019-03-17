@@ -12,6 +12,10 @@ ul {
   margin: 0;
 }
 
+#nav_left{
+  width: 250px;
+}
+
 .bg-steel {
   background-color: #222;
 }
@@ -28,10 +32,54 @@ ul {
   font-weight: 500;
 }
 
-.container {
-  background: #fafafa;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    /*background-color: #353b48;*/
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: #cbd5db;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > form > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color: white;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > form > .search_icon{
+    background: white;
+    color: #222;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    }
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
 }

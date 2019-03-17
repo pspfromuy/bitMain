@@ -3,41 +3,46 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
 
-<div class="album py-5 bg-light">
-    		<div class="container">
-      <div class="row">
 
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/yt_logo.png' %}') no-repeat center; background-size: contain;">
-            </div>            
-            <div class="card-body">
-              <p class="card-text">Search and follow the content you enjoy the most on the largest video platform.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.youtube.com">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="py-2 bg-light">
+    		
+      <div class="row"> <!-- Separador por filas -->
 
+        <!-- Tarjetas de Producto/Servicio -->
         <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/twitch_logo.png' %}') no-repeat center; background-size: contain;">
-            </div>            
-            <div class="card-body">
-              <p class="card-text">Discover the best live streams anywhere while sharing with others the content you enjoy.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.twitch.tv">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
+          	<div class="card mb-4 shadow-sm">
+            	<div class="card-img-top" style="height: 225px; background:url('{% static 'img/yt_logo.png' %}') no-repeat center; background-size: contain;">
+            	</div>            
+            	<div class="card-body">
+              		<p class="card-text">Search and follow the content you enjoy the most on the largest video platform.</p>
+              		<div clalss="d-flex justify-content-between align-items-center">
+                		<div class="btn-group">
+                  			<button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.youtube.com">Website</a></button>
+                  			<!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
+                		</div>
+              		</div>
+            	</div>
+          	</div>
         </div>
+        <!-- Fin de la tarjetas de Producto/Servicio -->
+
+        <!-- Tarjetas de Producto/Servicio -->
+        <div class="col-md-4">
+         	<div class="card mb-4 shadow-sm">
+           		<div class="card-img-top" style="height: 225px; background:url('{% static 'img/twitch_logo.png' %}') no-repeat center; background-size: contain;">
+            	</div>            
+            	<div class="card-body">
+              		<p class="card-text">Discover the best live streams anywhere while sharing with others the content you enjoy.</p>
+              		<div clalss="d-flex justify-content-between align-items-center">
+                		<div class="btn-group">
+                  		<button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.twitch.tv">Website</a></button>
+                  		<!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
+                		</div>
+              		</div>
+            	</div>
+          	</div>
+        </div>
+        <!-- Fin de la tarjetas de Producto/Servicio -->
 
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
@@ -153,14 +158,7 @@
         </div>
       </div>
     </div>
-  </div>
-
-<footer class="text-muted">
-  <div class="container">
-    <p class="float-right">
-      <a href="#">Back to top</a>
-    </p>
-  </div>
-</footer>
+ 
+ </div>
 
 {% endblock %}

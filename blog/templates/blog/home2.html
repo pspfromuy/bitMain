@@ -1,0 +1,25 @@
+{% extends "blog/main.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
+
+    <div class="row py-2">
+        {% for service in services %} 
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-img-top" style="height: 225px; background:url('{{service.image.url}}') no-repeat center; background-size: contain;">
+                </div>            
+                <div class="card-body">
+                    <p class="card-text">{{service.content}}</p>
+                    <div clalss="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{service.url}}">Website</a></button>
+                            <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
