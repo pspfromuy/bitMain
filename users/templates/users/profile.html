@@ -2,17 +2,29 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="content-section py-2">
-  	<div class="media">
-    	<img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+<div class="content-section mx-auto py-2" style="width: 45%">
+  	<div class="media" style="background-color: white">
+    	<img class="rounded-circle account-img" style="height: 140px; margin: 5px" src="{{ user.profile.image.url }}">
     	<div class="media-body">
-      		<h2 class="account-heading">{{ user.username }}</h2>
-      		<p class="text-secondary">{{ user.email }}</p>
+    		<ul>
+      		<h3 class="account-heading">Usuario: {{ user.username }}</h3>
+      		<p class="text-secondary">Email: {{ user.email }}</p>
+      		</ul>
     	</div>
   	</div>
-  	<!-- FORM HERE -->
+  	<div class="content py-2">
+  	<form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Profile Info</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+      </div>
 </div>
 
-{% endblock content %}
-{% block footer%}
 {% endblock %}

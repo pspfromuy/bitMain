@@ -52,7 +52,7 @@ def search(request):
 	requestVideos = request.GET.get('video_name', '')
 	
 	if requestVideos == '' :
-		messages.warning(request, 'No se pudo efectuar la búsqueda.. el campo de la misma no debe estar vacío')
+		messages.warning(request, 'No se pudo efectuar la búsqueda... el campo de la misma no debe estar vacío')
 		return redirect('blog-home')
 	else:
 		listOfVideos = youtube_search(requestVideos, 27)
