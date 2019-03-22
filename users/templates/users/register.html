@@ -1,7 +1,7 @@
 {% extends "blog/main.html" %} 
 {% load crispy_forms_tags %}
 {% block content %}
-	<div class="content-section">
+	<div class="content-section mx-auto" style="width: 30%">
 		<form method="POST">
 			{%  csrf_token %} <!-- <<< Protección contra ataques -->
 			<fieldset class="form-group">

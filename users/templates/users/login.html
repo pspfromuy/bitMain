@@ -1,8 +1,12 @@
 {% extends "blog/main.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
 
-	<div class="content-section">
+	<div class="content-section mx-auto" style="width: 30%">
+		<div class="card-img-top" style="height: 150px; background:url({% static 'img/Boombang.svg' %}) no-repeat center; background-size: 150px;">
+       	</div> 
 		<form method="POST">
 			{%  csrf_token %} <!-- <<< Protección contra ataques -->
 			<fieldset class="form-group">

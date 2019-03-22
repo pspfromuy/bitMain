@@ -3,162 +3,42 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
 
-
-<div class="py-2 bg-light">
-    		
-      <div class="row"> <!-- Separador por filas -->
-
-        <!-- Tarjetas de Producto/Servicio -->
+    <div class="row py-2">
+        {% for service in services %} 
         <div class="col-md-4">
-          	<div class="card mb-4 shadow-sm">
-            	<div class="card-img-top" style="height: 225px; background:url('{% static 'img/yt_logo.png' %}') no-repeat center; background-size: contain;">
-            	</div>            
-            	<div class="card-body">
-              		<p class="card-text">Search and follow the content you enjoy the most on the largest video platform.</p>
-              		<div clalss="d-flex justify-content-between align-items-center">
-                		<div class="btn-group">
-                  			<button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.youtube.com">Website</a></button>
-                  			<!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                		</div>
-              		</div>
-            	</div>
-          	</div>
-        </div>
-        <!-- Fin de la tarjetas de Producto/Servicio -->
-
-        <!-- Tarjetas de Producto/Servicio -->
-        <div class="col-md-4">
-         	<div class="card mb-4 shadow-sm">
-           		<div class="card-img-top" style="height: 225px; background:url('{% static 'img/twitch_logo.png' %}') no-repeat center; background-size: contain;">
-            	</div>            
-            	<div class="card-body">
-              		<p class="card-text">Discover the best live streams anywhere while sharing with others the content you enjoy.</p>
-              		<div clalss="d-flex justify-content-between align-items-center">
-                		<div class="btn-group">
-                  		<button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.twitch.tv">Website</a></button>
-                  		<!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                		</div>
-              		</div>
-            	</div>
-          	</div>
-        </div>
-        <!-- Fin de la tarjetas de Producto/Servicio -->
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/dc_logo.png' %}') no-repeat center; background-size: contain;">
-            </div>            
-            <div class="card-body">
-              <p class="card-text">THE ULTIMATE DC MEMBERSHIP</p>
-              <p class="card-text">A first-of-its-kind digital experience designed for DC fans.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.dcuniverse.com">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
+            <div class="card mb-4 shadow-sm">
+                <div class="card-img-top" style="height: 180px; background:url('{{service.image.url}}') no-repeat center; background-size: 450px;">
+                </div>            
+                <div class="card-body">
+                    <p class="card-text">{{service.content}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{service.url}}">Website</a></button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Asociar</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/hbogo2.png' %}') no-repeat center; background-size: contain;">
-            </div>
-            <div class="card-body">
-              <p class="card-text">Immediate and unlimited access to your favorite HBO series, the highest grossing films, documentaries and more</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://us.hbomax.tv/hbogo">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/Netflix-Logo.png' %}') no-repeat center; background-size: contain;">
-            </div>           
-            <div class="card-body">
-              <p class="card-text">Enjoy the most amazing movies and series. Original and top quality content.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.netflix.com/">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/Hulu.png' %}') no-repeat center; background-size: contain;">
-            </div>           
-            <div class="card-body">
-              <p class="card-text">All Your TV In One Place.</p>
-              <p class="card-text">Watch thousands of shows and movies. No contracts, commitments, or equipment rentals.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.hulu.com/welcome">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/history.png' %}') no-repeat center; background-size: contain;">
-            </div>           
-            <div class="card-body">
-              <p class="card-text">Watch full episodes of your favorite HISTORY series, and dive into thousands of historical articles and videos.</p>
-              <p class="card-text">To know History is to know life.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.history.com/">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/Prime_Video_logo.png' %}') no-repeat center; background-size: contain;">
-            </div>           
-            <div class="card-body">
-              <p class="card-text">Enjoy exclusive Prime Originals as well as popular movies and TV shows.</p>
-              <p class="card-text">Watch anytime, anywhere.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.primevideo.com/">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-img-top" style="height: 225px; background:url('{% static 'img/fox.png' %}') no-repeat center; background-size: contain;">
-            </div>           
-            <div class="card-body">
-              <p class="card-text">Watch series, movies, live sports, documentaries and much more on FOX.</p>
-              <p class="card-text">Complete episodes of your favorite shows.</p>
-              <div clalss="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://foxplay.com/">Website</a></button>
-                  <!--button type="button" class="btn btn-sm btn-outline-secondary">Edit</button-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        {% endfor %}
     </div>
- 
- </div>
+
+<div class="pagination">
+    <span class="step-links mx-auto">
+        {% if services.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ services.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ services.number }} of {{ services.paginator.num_pages }}
+        </span>
+
+        {% if services.has_next %}
+            <a href="?page={{ services.next_page_number }}">next</a>
+            <a href="?page={{ services.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
 {% endblock %}

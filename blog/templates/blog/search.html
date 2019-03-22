@@ -17,4 +17,22 @@
         {% endfor %}
     </div>
 
+<div class="pagination">
+    <span class="step-links mx-auto">
+        {% if videos.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ videos.previous_page_number }}&video_name={{ video_name }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ videos.number }} of {{ videos.paginator.num_pages }}
+        </span>
+
+        {% if videos.has_next %}
+            <a href="?page={{ videos.next_page_number }}&video_name={{ video_name }}">next</a>
+            <a href="?page={{ videos.paginator.num_pages }}&video_name={{ video_name }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}

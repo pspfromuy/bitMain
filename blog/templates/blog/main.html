@@ -20,27 +20,27 @@
 	<header class="site-header">
 	  	<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
 	    	
-	    		<a class="navbar-brand" href="{% url 'blog-home' %}">Boombang</a>
+    		<a class="navbar-brand" href="{% url 'blog-home' %}">Boombang</a>
 
-        		<div class="navbar-nav" id="nav_left">
-          			<a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="{% url 'blog-our-team' %}">Our Team</a>
-							<a class="dropdown-item" href="{% url 'blog-faqs' %}">FAQS</a>
-						</div>
-					</li>
-				</div>
+    		<div class="navbar-nav" id="nav_left">
+      			<a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="{% url 'blog-our-team' %}">Our Team</a>
+						<a class="dropdown-item" href="{% url 'blog-faqs' %}">FAQS</a>
+					</div>
+				</li>
+			</div>
 
-		      	<div class="navbar-nav mx-auto">
-		        	<div class="searchbar">
-		        		<form action="/search/" method="GET" id="video_search">
-			          		<input class="search_input" type="text" name="video_name" placeholder="Search...">
-			          		<a href="javascript:$('#video_search').submit();" class="search_icon"><i class="fas fa-search"></i></a>
-		          		</form>
-		        	</div>
-		      	</div>
+	      	<div class="navbar-nav mx-auto">
+	        	<div class="searchbar">
+	        		<form action="/search/" method="GET" id="video_search">
+		          		<input class="search_input" type="text" name="video_name" placeholder="Search...">
+		          		<a href="javascript:$('#video_search').submit();" class="search_icon"><i class="fas fa-search"></i></a>
+	          		</form>
+	        	</div>
+	      	</div>
 
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav ml-auto">
@@ -58,34 +58,33 @@
 
 
 	<main role="main" class="container">
+
 		{% if messages %}
 			{% for message in messages %}
-				<div class="alert alert-{{ message.tags }}">
+				<div class="alert alert-{{ message.tags }} ">
 					{{ message }}
 				</div>
 			{% endfor %}	
 		{% endif %}
 
-			    {% block content %}
-			    {% endblock %}
+	    {% block content %}
+	    {% endblock %}
 
-		      	{% block footer%}
-					<footer class="text-muted">
-					    <p class="float-right">
-					      	<a href="#">Back to top</a>
-					    </p>
-					</footer>
-				{% endblock %}
+      	{% block footer%}
+			<footer class="text-muted">
+			    <p class="float-right">
+			      	<a href="#">Back to top</a>
+			    </p>
+			</footer>
+		{% endblock %}
 		
 	</main>
 
-	 <!-- Optional JavaScript -->
+	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
 
 </body>
 

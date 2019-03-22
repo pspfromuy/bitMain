@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.core.paginator import Paginator
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
@@ -31,17 +33,12 @@ def youtube_search(q, max_results):
 	return videos
 
 
-# Create your views here.
-
 def home(request):
-	return render(request, 'blog/home.html')
-
-def home2(request):
 	services = Service.objects.all()
-	context = {
-		'services': services
-	}
-	return render(request, 'blog/home2.html', context=context)
+	paginator = Paginator(services, 3) # Show 3 contacts per page
+	page = request.GET.get('page')
+	services = paginator.get_page(page)
+	return render(request, 'blog/home.html', {'services': services})
 
 def ourteam(request):
 	return render(request, 'blog/ourteam.html')
@@ -51,9 +48,15 @@ def faqs(request):
 
 def search(request):
 	requestVideos = request.GET.get('video_name', '')
+	
 	if requestVideos == '' :
-		listOfVideos = []
+		messages.warning(request, 'No se pudo efectuar la búsqueda.. el campo de la misma no debe estar vacío')
+		return redirect('blog-home')
 	else:
-		listOfVideos = youtube_search(requestVideos, 9)
-	return render(request, 'blog/search.html', {'videos': listOfVideos})
+		listOfVideos = youtube_search(requestVideos, 27)
+		paginator = Paginator(listOfVideos, 9) # Show 3 contacts per page
+		page = request.GET.get('page')
+		listOfVideos = paginator.get_page(page)
+		
+	return render(request, 'blog/search.html', {'videos': listOfVideos, 'video_name':requestVideos} )
 
