@@ -3,81 +3,77 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/about.css' %}">
 
-  <!-- Header -->
-  <header class="bg-primary py-5 mb-5">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">MEET OUR TEAM</h1>
-          <p class="lead mb-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam.</p>
-        </div>
-      </div>
-    </div>
-  </header>
-
   
+<!-- Page Content -->
+<div class="container">
 
-    <!-- /.row -->
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">About
+    <small>Boombang</small>
+  </h1>
 
-    <div class="row">
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">LUAR</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
-          </div>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{% url 'blog-faqs' %}">FAQS</a>
+    </li>
+    <li class="breadcrumb-item active">OUR TEAM</li>
+  </ol>
+
+  <!-- Intro Content -->
+  <div class="row">
+    <div class="col-lg-6">
+      <img class="img-fluid rounded mb-4" src="{% static 'img/programa bit.jpg' %}" alt="">
+    </div>
+    <div class="col-lg-6">
+      <h2>About Modern Business</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
         </div>
-      </div>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="{% static 'img/fotogab.jpg' %}" alt="">
-          <div class="card-body">
-            <h4 class="card-title">GABRIELA</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
-          </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Team Members -->
+  <h2>Our Team</h2>
+
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{% static 'img/fotopab.png' %}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">PABLO</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
         </div>
-      </div>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
-          <div class="card-body">
-            <h4 class="card-title">PABLO</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
+        <div class="card-footer">
+          <a href="#">name@example.com</a>
         </div>
       </div>
     </div>
-
-
-    <div class="row">
-        <div class="col-md-8 mb-5">
-          <h2>What We Do</h2>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-          <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{% static 'img/fotogab.jpg' %}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">GABRIELA</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
         </div>
-        <div class="col-md-4 mb-5">
-          <h2>Contact Us</h2>
-          <hr>
-          <address>
-            <strong>Programa BIT</strong>
-            <br>Bitnovation 123
-            <br>Montevideo, Uruguay
-            <br>
-          </address>
-          <address>
-            <abbr title="Phone">P:</abbr>
-            (123) 456-7890
-            <br>
-            <abbr title="Email">E:</abbr>
-            <a href="mailto:#">name@example.com</a>
-          </address>
+        <div class="card-footer">
+          <a href="#">name@example.com</a>
         </div>
       </div>
-
-    <!-- /.row -->
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{% static 'img/fotoluar.jpg' %}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">LUAR</h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">name@example.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
 
 
   <!-- /.container -->
