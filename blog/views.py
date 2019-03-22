@@ -32,6 +32,8 @@ def youtube_search(q, max_results):
 			videos.append(search_result)
 	return videos
 
+def index(request):
+	return render(request, 'blog/index.html')
 
 def home(request):
 	services = Service.objects.all()
