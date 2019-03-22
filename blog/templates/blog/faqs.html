@@ -1,8 +1,61 @@
 {% extends "blog/main.html" %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'blog/about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blog/faqs.css' %}">
 
 
+<!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">FAQs
+      <small>Boombang</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'blog-our-team' %}">OUR TEAM</a>
+      </li>
+      <li class="breadcrumb-item active">FAQ</li>
+    </ol>
+
+    <div class="mb-4" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">¿Qué es Boombang?</a>
+          </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+          <div class="card-body">
+            Boombang es una plataforma de servicios de streaming donde puedes encontrar todo el contenido estas buscando en un solo lugar. 
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="headingTwo">
+          <h5 class="mb-0">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> ¿Como puedo usarla? </a>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="card-body">
+            Debes crearte un usuario y activar los servicios que quieras mediante tu usuario y contraseña
+                  </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="headingThree">
+          <h5 class="mb-0">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">¿Puedo ver las peliculas de cualquier servicio?</a>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="card-body">
+            Podes ver las películas que se encuentren en tus servicios de streaming activos. Si no lo tenes activo puedes hacerlo desde nuestra plataforma.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 {% endblock %}
