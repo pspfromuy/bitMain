@@ -4,10 +4,10 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
 
-	<div class="content-section mx-auto py-2" style="width: 30%">
-		<div class="card-img-top" style="height: 150px; background:url({% static 'img/Boombang.svg' %}) no-repeat center; background-size: 150px;">
+	<div class="content-section py-2 mx-auto row" style="width: 55%; background: white; margin: 5px">
+		<div class="card-img-top col-sm-4" style="height: 150px; align-self: center; background:url({% static 'img/Boombang.svg' %}) no-repeat center; background-size: 150px;">
        	</div> 
-		<form method="POST">
+		<form class="container col-sm-8" method="POST">
 			{%  csrf_token %} <!-- <<< Protección contra ataques -->
 			<fieldset class="form-group">
 				<legend class="border-bottom mb-4">Login</legend>
@@ -16,14 +16,14 @@
 			<div class="form-group">
 				<button class="btn btn-outline-info" type="submit">Login</button>
 			</div>
-		</form>
-		<div class="border-top pt-3">
-			<small class="text-muted">
-				Do not have an account? <a class="ml-2" href="{% url 'users-register' %}">Register here!</a>
-			</small>
-		</div>
-	
+			<div class="border-top pt-3">
+				<small class="text-muted">
+					Do not have an account? <a class="ml-2" href="{% url 'users-register' %}">Register here!</a>
+				</small>
+			</div>
+		</form>	
 	</div>
+	
 {% endblock %}
 {% block footer %}
 {% endblock %}

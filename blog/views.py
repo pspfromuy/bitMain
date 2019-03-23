@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
+from django.contrib.auth.decorators import login_required
 from .models import Service
 
 DEVELOPER_KEY = "AIzaSyD_J7a1LfWjW-JTMZB7lSfnnU1fYezaG5A"
@@ -37,7 +38,7 @@ def index(request):
 
 def home(request):
 	services = Service.objects.all()
-	paginator = Paginator(services, 3) # Show 3 contacts per page
+	paginator = Paginator(services, 9) # Muestra 9 servicio por página
 	page = request.GET.get('page')
 	services = paginator.get_page(page)
 	return render(request, 'blog/home.html', {'services': services})
@@ -55,10 +56,9 @@ def search(request):
 		messages.warning(request, 'No se pudo efectuar la búsqueda... el campo de la misma no debe estar vacío')
 		return redirect('blog-home')
 	else:
-		listOfVideos = youtube_search(requestVideos, 27)
-		paginator = Paginator(listOfVideos, 9) # Show 3 contacts per page
+		listOfVideos = youtube_search(requestVideos, 27) # La cantidad máxima de respuestas es 27
+		paginator = Paginator(listOfVideos, 9) # Muestra 9 videos por página
 		page = request.GET.get('page')
 		listOfVideos = paginator.get_page(page)
 		
 	return render(request, 'blog/search.html', {'videos': listOfVideos, 'video_name':requestVideos} )
-

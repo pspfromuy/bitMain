@@ -1,27 +1,68 @@
 {% extends "blog/main.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
 
-    <div class="row py-2">
-        {% for service in services %} 
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-img-top" style="height: 180px; background:url('{{service.image.url}}') no-repeat center; background-size: 450px;">
-                </div>            
-                <div class="card-body">
-                    <p class="card-text">{{service.content}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{service.url}}">Website</a></button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Asociar</button>
-                        </div>
+
+<div class="row py-2">
+    {% for service in services %} 
+
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-img-top" style="height: 180px; background:url('{{service.image.url}}') no-repeat center; background-size: 450px;">
+            </div>            
+            <div class="card-body">
+                <p class="card-text">{{service.content}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{service.url}}">Website</a></button>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modal_{{service.title}}">Asociar</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="modal_{{service.title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Asociar su cuenta de <strong>{{service.title}}</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            <div class="modal-body">
+                <form method="POST">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" placeholder="name@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="alert alert-danger">Servicio en mantenimiento. Disculpe las molestias.
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Asociar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
 
 <div class="pagination">
     <span class="step-links mx-auto">
@@ -40,5 +81,6 @@
         {% endif %}
     </span>
 </div>
+
 
 {% endblock %}
