@@ -1,0 +1,22 @@
+{% extends "blog/main.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
+   
+    <div class="row">
+        {% for video in mylist %} 
+        <div class="col-md-4">
+            <div class="card shadow-sm" style="height: 260px;">
+                <p class="card-text" style="height: 20px; text-align: center;">{{video.title}}</p>
+                <div class="card-body">
+                    <iframe src="https://www.youtube.com/embed/{{video.videoid}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

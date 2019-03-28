@@ -6,6 +6,7 @@ from apiclient.errors import HttpError
 from oauth2client.tools import argparser
 from django.contrib.auth.decorators import login_required
 from .models import Service
+from .models import Mylist
 
 DEVELOPER_KEY = "AIzaSyD_J7a1LfWjW-JTMZB7lSfnnU1fYezaG5A"
 YOUTUBE_API_SERVICE_NAME = "youtube"
@@ -62,3 +63,21 @@ def search(request):
 		listOfVideos = paginator.get_page(page)
 		
 	return render(request, 'blog/search.html', {'videos': listOfVideos, 'video_name':requestVideos} )
+
+def mylist(request):
+	username = None
+	if request.user.is_authenticated:
+		username = request.user.username
+	mylist = Mylist.objects.filter(username=username)
+	return render(request, 'blog/mylist.html', {'mylist': mylist})
+
+def addvideo(request):
+	requestVideoId = request.POST.get('videoid', '')
+	requestTitle = request.POST.get('title', '')
+	username = None
+	if request.user.is_authenticated:
+		username = request.user.username
+	p = Mylist(username=username, title=requestTitle, videoid=requestVideoId)
+	p.save()
+	mylist = Mylist.objects.filter(username=username)
+	return render(request, 'blog/mylist.html', {'mylist': mylist})

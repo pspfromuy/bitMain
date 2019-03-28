@@ -11,6 +11,12 @@
                 <div class="card-body">
                     <iframe src="https://www.youtube.com/embed/{{video.id.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
+                    <form id="mylistform" action="/addVideo/" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name='videoid' style="display:none" id='videoid' value='{{video.id.videoId}}'/>
+                        <input type="text" name='title' style="display:none" id='title' value='{{video.snippet.title}}'/>
+                        <button type='submit' class="btn btn-sm btn-outline-secondary">+ My list</button>
+                    </form>
                 </div>
             </div>
         </div>

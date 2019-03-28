@@ -9,3 +9,12 @@ class Service(models.Model):
 	
 	def __str__(self):
 		return self.title
+
+		# Modelo para crear lista
+class Mylist(models.Model):
+	username = models.CharField(max_length=100)
+	videoid = models.CharField(max_length=100)
+	title = models.TextField(blank=True, null=True)
+	
+	def __str__(self):
+		return self.username
